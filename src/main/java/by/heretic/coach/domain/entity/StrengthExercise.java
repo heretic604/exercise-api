@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
 
 import java.time.LocalDate;
 
@@ -16,14 +17,15 @@ import java.time.LocalDate;
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
-public class Exercise {
+@FieldNameConstants
+public class StrengthExercise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer exerciseId;
-    private String exerciseName;
+    private Long strengthExerciseId;
+    private String strengthExerciseName;
     private Integer setCount;
     private Integer repetition;
-    private LocalDate exerciseDate;
+    private LocalDate strengthExerciseDate;
 
 }
