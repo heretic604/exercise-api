@@ -1,79 +1,151 @@
 body {
-    background-color: #f1f5f8;
-    font-family: Arial, sans-serif;
+    background-color: #f1f5f8; /* Задает фоновый цвет для body */
+    font-family: Arial, sans-serif; /* Задает шрифт для текста в body */
 }
 
 h1 {
-    color: #007bff;
+    color: #007bff; /* Задает цвет текста для заголовка h1 */
 }
 
 .container {
-    display: flex;
+    display: flex; /* Устанавливает контейнер в режиме flexbox */
 }
 
 .table-container {
-    flex: 4;
-    margin-right: 20px;
+    flex: 4; /* Устанавливает ширину элемента в 4 части от доступной ширины */
+    margin-right: 20px; /* Устанавливает отступ справа для элемента */
 }
 
-.add-exercise-form {
-    flex: 1;
-    margin-left: 20px;
+.forms-container {
+    flex: 1; /* Устанавливает ширину элемента в 1 часть от доступной ширины */
+    display: flex; /* Устанавливает контейнер в режиме flexbox */
+    flex-direction: column; /* Устанавливает направление элементов в столбец */
+    align-items: flex-start; /* Выравнивает элементы по левому краю контейнера */
+    margin-left: 50px; /* Устанавливает отступ слева для элемента */
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Занимает 100% ширины родительского элемента */
+    border-collapse: collapse; /* Убирает отступы между ячейками таблицы */
 }
 
 td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    height: 30px; /* Измените это значение на нужную вам высоту строк */
+    padding: 8px; /* Устанавливает отступ внутри ячейки */
+    text-align: left; /* Выравнивает текст в ячейке по левому краю */
+    border-bottom: 1px solid #ddd; /* Добавляет нижнюю границу для ячейки */
+    height: 30px; /* Задает высоту ячейки */
 }
 
 th {
-    background-color: #007bff;
-    color: white;
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    height: 30px; /* Измените это значение на нужную вам высоту строк */
+    background-color: #007bff; /* Задает фоновый цвет для заголовка таблицы */
+    color: white; /* Задает цвет текста для заголовка таблицы */
+    padding: 8px; /* Устанавливает отступ внутри заголовка таблицы */
+    text-align: left; /* Выравнивает текст в заголовке таблицы по левому краю */
+    border-bottom: 1px solid #ddd; /* Добавляет нижнюю границу для заголовка таблицы */
+    height: 30px; /* Задает высоту заголовка таблицы */
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Задает фоновый цвет для каждой второй строки таблицы */
 }
 
 form {
-    margin-top: 20px;
+    margin-top: 20px; /* Устанавливает отступ сверху для формы */
 }
 
 form div {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Устанавливает отступ снизу для блока формы */
 }
 
 label {
-    display: block;
-    font-weight: bold;
+    display: block; /* Задает элемент метки как блочный */
+    font-weight: bold; /* Задает полужирное начертание для текста метки */
 }
 
 input[type="text"],
 input[type="number"],
-input[type="date"] {
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    width: 200px;
+input[type="date"],
+select {
+    padding: 5px; /* Устанавливает отступ внутри элементов ввода */
+    border-radius: 4px; /* Задает скругленные углы для элементов ввода */
+    border: 1px solid #ccc; /* Задает границу для элементов ввода */
+    width: 100%; /* Занимает 100% ширины родительского элемента */
+}
+
+.delete-button[type = "submit"] {
+    padding: 5px 20px; /* Устанавливает отступы внутри кнопки удаления */
+    font-size: 10px; /* Задает размер шрифта для кнопки удаления */
+    text-align: center; /* Выравнивает текст в кнопке удаления по центру */
+    text-decoration: none; /* Удаляет подчеркивание ссылки в кнопке удаления */
+    background-color: #dc3545; /* Задает фоновый цвет для кнопки удаления */
+    color: white; /* Задает цвет текста для кнопки удаления */
+    border-radius: 4px; /* Задает скругление углов для кнопки удаления */
+    border: none; /* Удаляет границу для кнопки удаления */
+    cursor: pointer; /* Задает курсор при наведении на кнопку удаления */
+}
+
+.delete-button:hover[type = "submit"] {
+    background-color: #c82333; /* Задает фоновый цвет для кнопки удаления при наведении */
+}
+
+.pagination {
+    margin-top: 20px; /* Устанавливает отступ сверху для пагинации */
+}
+
+.pagination a {
+    padding: 5px 10px; /* Устанавливает отступы внутри элементов пагинации */
+    text-decoration: none; /* Удаляет подчеркивание ссылки в пагинации */
+    color: #007bff; /* Задает цвет текста для элементов пагинации */
+    border: 1px solid #ddd; /* Задает границу для элементов пагинации */
+    border-radius: 4px; /* Задает скругление углов для элементов пагинации */
+    margin-right: 5px; /* Устанавливает отступ справа для элементов пагинации */
+}
+
+.pagination a:hover {
+    background-color: #f2f2f2; /* Задает фоновый цвет для элементов пагинации при наведении */
+}
+
+.select-container {
+    width: 100%; /* Занимает 100% ширины родительского элемента */
+}
+
+.select-container select {
+    padding: 5px; /* Устанавливает отступ внутри выпадающего списка */
+    font-size: 14px; /* Задает размер шрифта для выпадающего списка */
+    border-radius: 4px; /* Задает скругление углов для выпадающего списка */
+    border: 1px solid #ccc; /* Задает границу для выпадающего списка */
+    width: 100%; /* Занимает 100% ширины родительского элемента */
+}
+
+.add-exercise-form {
+    margin-bottom: 20px; /* Устанавливает отступ снизу для формы добавления упражнения */
+}
+
+.save-button[type = "submit"] {
+    width: 100%; /* Занимает 100% ширины родительского элемента */
+    height: 30px; /* Задает высоту кнопки сохранения */
+    background-color: #007bff; /* Задает фоновый цвет для кнопки сохранения */
+    color: white; /* Задает цвет текста для кнопки сохранения */
+    padding: 10px 20px; /* Устанавливает отступы внутри кнопки сохранения */
+    border: none; /* Удаляет границу для кнопки сохранения */
+    border-radius: 4px; /* Задает скругление углов для кнопки сохранения */
+    cursor: pointer; /* Задает курсор при наведении на кнопку сохранения */
+    font-family: Arial, sans-serif; /* Задает шрифт для кнопки сохранения */
+    font-size: 14px; /* Задает размер шрифта для кнопки сохранения */
+    text-align: center; /* Выравнивает текст в кнопке сохранения по центру */
+    line-height: 0; /* Удаляет отступы между строками в кнопке сохранения */
+}
+
+.save-button:hover[type = "submit"]{
+    background-color: #0056b3; /* Задает фоновый цвет для кнопки сохранения при наведении */
 }
 
 button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #007bff;
+    padding: 10px 20px; /* Устанавливает отступы внутри кнопки */
+    font-size: 16px; /* Задает размер шрифта для кнопки */
+    text-align: center; /* Выравнивает текст в кнопке по центру */
+    text-decoration: none; /* Удаляет подчеркивание ссылки в кнопке */
+    background-color: #007bff; /* Задает фоновый цвет для */
     color: white;
     border-radius: 4px;
     border: none;
@@ -82,49 +154,4 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #0056b3;
-}
-
-.delete-button[type = "submit"] {
-    padding: 5px 20px;
-    font-size: 10px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #dc3545;
-    color: white;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-}
-
-.delete-button:hover[type = "submit"] {
-    background-color: #c82333;
-}
-
-.pagination {
-    margin-top: 20px;
-}
-
-.pagination a {
-    padding: 5px 10px;
-    text-decoration: none;
-    color: #007bff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-right: 5px;
-}
-
-.pagination a:hover {
-    background-color: #f2f2f2;
-}
-
-.select-container {
-    width: 80%;
-}
-
-select {
-    width: 80%;
-    padding: 5px;
-    font-size: 14px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
 }

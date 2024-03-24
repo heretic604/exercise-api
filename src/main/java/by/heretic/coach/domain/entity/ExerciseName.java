@@ -1,4 +1,4 @@
-package by.heretic.coach.domain.entity.exercise.strength.name;
+package by.heretic.coach.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Data
-public class StrengthExerciseName {
+public class ExerciseName {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long strengthExerciseNameId;
-    private String strengthExerciseName;
+    private Long exerciseNameId;
+    private String exerciseName;
 
 }
