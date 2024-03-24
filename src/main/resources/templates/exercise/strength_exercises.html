@@ -46,9 +46,14 @@
     <div class="add-strengthExercise-form">
         <h1>Add Exercise</h1>
         <form th:action="@{${saveExerciseUrl}}" method="post">
-            <div>
-                <label for="strengthExerciseName">Exercise Name:</label>
-                <input type="text" id="strengthExerciseName" name="strengthExerciseName" required>
+            <div class="select-container">
+                <label for="strengthExerciseName">Strength Exercise Name:</label>
+                <select id="strengthExerciseName" name="strengthExerciseNameId" required>
+                    <option value="">Select Strength Exercise</option>
+                    <option th:each="strengthExercise : ${strengthExercisesNames}"
+                            th:value="${strengthExercise.strengthExerciseNameId}"
+                            th:text="${strengthExercise.strengthExerciseName}"></option>
+                </select>
             </div>
             <div>
                 <label for="setCount">Set Count:</label>

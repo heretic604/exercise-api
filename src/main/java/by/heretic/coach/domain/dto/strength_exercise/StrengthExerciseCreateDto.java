@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Setter
 public class StrengthExerciseCreateDto {
 
-    private String strengthExerciseName;
+    private Long strengthExerciseNameId;
     private Integer setCount;
     private Integer repetition;
     private LocalDate strengthExerciseDate;

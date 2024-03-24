@@ -1,7 +1,7 @@
 package by.heretic.coach.controller;
 
 import by.heretic.coach.domain.dto.strength_exercise.StrengthExerciseCreateDto;
-import by.heretic.coach.domain.entity.StrengthExercise;
+import by.heretic.coach.domain.entity.exercise.strength.StrengthExercise;
 import by.heretic.coach.service.StrengthExerciseService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +35,7 @@ public class StrengthExerciseController {
                          Pageable pageable) {
         var strengthExercisePage = strengthExerciseService.getAll(pageable);
         model.addAttribute("strengthExercises", strengthExercisePage.getContent());
+        model.addAttribute("strengthExercisesNames", strengthExerciseService.getAllNames());
         model.addAttribute("currentPage", pageable.getPageNumber());
         model.addAttribute("totalPages", strengthExercisePage.getTotalPages());
         model.addAttribute("baseUrl", STRENGTH_EXERCISES_BASE_URL);
