@@ -2,10 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Exercises</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/button.css">
+    <link rel="stylesheet" type="text/css" href="/container.css">
+    <link rel="stylesheet" type="text/css" href="/form.css">
+    <link rel="stylesheet" type="text/css" href="/header.css">
+    <link rel="stylesheet" type="text/css" href="/pagination.css">
+    <link rel="stylesheet" type="text/css" href="/table.css">
 </head>
 <body>
-<h1>List of Exercises</h1>
+<h1 class="exercise-title">Exercise Management</h1>
 <div class="container">
     <div class="table-container">
         <table>
@@ -15,6 +21,9 @@
                 <th>Repetition</th>
                 <th>Exercise Date</th>
                 <th>Actions</th>
+            </tr>
+            <tr th:if="${#lists.isEmpty(exercises)}">
+                <td colspan="5" class="empty-table">No completed exercises</td>
             </tr>
             <tr th:each="exercise : ${exercises}">
                 <td th:text="${exercise.exerciseName}"></td>
@@ -70,9 +79,10 @@
         </div>
     </div>
 </div>
-<div class="pagination">
+<div class="pagination-container">
     <a th:href="@{${baseUrl}}">First</a>
     <a th:href="@{${baseUrl}(page=${currentPage - 1})}" th:if="${currentPage > 0}">Previous</a>
+    <span th:text="${currentPage + 1}"></span> / <span th:text="${totalPages}"></span>
     <a th:href="@{${baseUrl}(page=${currentPage + 1})}" th:if="${currentPage < totalPages - 1}">Next</a>
     <a th:href="@{${baseUrl}(page=${totalPages} - 1)}">Last</a>
 </div>

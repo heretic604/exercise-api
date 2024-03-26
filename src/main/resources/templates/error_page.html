@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Error Page</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="/button.css">
+  <link rel="stylesheet" type="text/css" href="/container.css">
+  <link rel="stylesheet" type="text/css" href="/form.css">
+  <link rel="stylesheet" type="text/css" href="/header.css">
+</head>
+<body>
+<div class="error-container">
+  <h1 class="error-title">Error</h1>
+  <p class="error-p" th:text="${errorMessage}"></p>
+  <a href="/v1/strength-exercises" class="error-button">Return to exercises</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+body {
+    background-color: #D0E1F9; /* Задает фоновый цвет для body */
+    font-family: Arial, sans-serif; /* Задает шрифт для текста в body */
+}
+
+.error-p {
+    margin-bottom: 20px;
+}
