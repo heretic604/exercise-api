@@ -1,4 +1,4 @@
-package by.heretic.coach.domain.dto.exercise;
+package by.heretic.strength_exercise_api.domain.dto.exercise;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package by.heretic.coach.util;
+package by.heretic.strength_exercise_api.util;
 
 public record Constants() {
 

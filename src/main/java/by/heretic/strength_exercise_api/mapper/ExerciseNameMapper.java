@@ -1,8 +1,8 @@
-package by.heretic.coach.mapper;
+package by.heretic.strength_exercise_api.mapper;
 
-import by.heretic.coach.domain.dto.exercise.name.ExerciseNameCreateDto;
-import by.heretic.coach.domain.dto.exercise.name.ExerciseNameDto;
-import by.heretic.coach.domain.entity.ExerciseName;
+import by.heretic.strength_exercise_api.domain.dto.exercise.name.ExerciseNameCreateDto;
+import by.heretic.strength_exercise_api.domain.dto.exercise.name.ExerciseNameDto;
+import by.heretic.strength_exercise_api.domain.entity.ExerciseName;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

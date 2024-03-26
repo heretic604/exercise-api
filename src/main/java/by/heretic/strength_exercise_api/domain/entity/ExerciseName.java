@@ -1,4 +1,4 @@
-package by.heretic.coach.domain.entity;
+package by.heretic.strength_exercise_api.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

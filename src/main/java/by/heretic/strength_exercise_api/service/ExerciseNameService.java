@@ -1,9 +1,9 @@
-package by.heretic.coach.service;
+package by.heretic.strength_exercise_api.service;
 
-import by.heretic.coach.domain.dto.exercise.name.ExerciseNameCreateDto;
-import by.heretic.coach.domain.dto.exercise.name.ExerciseNameDto;
-import by.heretic.coach.mapper.ExerciseNameMapper;
-import by.heretic.coach.repository.ExerciseNameRepository;
+import by.heretic.strength_exercise_api.domain.dto.exercise.name.ExerciseNameCreateDto;
+import by.heretic.strength_exercise_api.domain.dto.exercise.name.ExerciseNameDto;
+import by.heretic.strength_exercise_api.mapper.ExerciseNameMapper;
+import by.heretic.strength_exercise_api.repository.ExerciseNameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,10 @@
-package by.heretic.coach.mapper;
+package by.heretic.strength_exercise_api.mapper;
 
-import by.heretic.coach.domain.dto.exercise.ExerciseCreateDto;
-import by.heretic.coach.domain.dto.exercise.ExerciseDto;
-import by.heretic.coach.domain.entity.Exercise;
-import by.heretic.coach.domain.entity.ExerciseName;
-import by.heretic.coach.repository.ExerciseNameRepository;
+import by.heretic.strength_exercise_api.domain.dto.exercise.ExerciseCreateDto;
+import by.heretic.strength_exercise_api.domain.dto.exercise.ExerciseDto;
+import by.heretic.strength_exercise_api.domain.entity.Exercise;
+import by.heretic.strength_exercise_api.domain.entity.ExerciseName;
+import by.heretic.strength_exercise_api.repository.ExerciseNameRepository;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;

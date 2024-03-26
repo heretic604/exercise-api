@@ -1,13 +1,13 @@
-package by.heretic.coach;
+package by.heretic.strength_exercise_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CoachApplication {
+public class StrengthExerciseApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CoachApplication.class, args);
+		SpringApplication.run(StrengthExerciseApiApplication.class, args);
 	}
 
 }

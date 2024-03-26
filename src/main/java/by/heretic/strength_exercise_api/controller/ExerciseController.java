@@ -1,10 +1,10 @@
-package by.heretic.coach.controller;
+package by.heretic.strength_exercise_api.controller;
 
-import by.heretic.coach.domain.dto.exercise.ExerciseCreateDto;
-import by.heretic.coach.domain.dto.exercise.name.ExerciseNameCreateDto;
-import by.heretic.coach.domain.entity.Exercise;
-import by.heretic.coach.service.ExerciseNameService;
-import by.heretic.coach.service.ExerciseService;
+import by.heretic.strength_exercise_api.domain.dto.exercise.ExerciseCreateDto;
+import by.heretic.strength_exercise_api.domain.dto.exercise.name.ExerciseNameCreateDto;
+import by.heretic.strength_exercise_api.domain.entity.Exercise;
+import by.heretic.strength_exercise_api.service.ExerciseNameService;
+import by.heretic.strength_exercise_api.service.ExerciseService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import static by.heretic.coach.util.Constants.DELETE;
-import static by.heretic.coach.util.Constants.NAME;
-import static by.heretic.coach.util.Constants.EXERCISES_BASE_URL;
-import static by.heretic.coach.util.Constants.EXERCISES_PATH;
-import static by.heretic.coach.util.Constants.PAGE_SIZE;
-import static by.heretic.coach.util.Constants.REDIRECT;
-import static by.heretic.coach.util.Constants.SAVE;
+import static by.heretic.strength_exercise_api.util.Constants.DELETE;
+import static by.heretic.strength_exercise_api.util.Constants.NAME;
+import static by.heretic.strength_exercise_api.util.Constants.EXERCISES_BASE_URL;
+import static by.heretic.strength_exercise_api.util.Constants.EXERCISES_PATH;
+import static by.heretic.strength_exercise_api.util.Constants.PAGE_SIZE;
+import static by.heretic.strength_exercise_api.util.Constants.REDIRECT;
+import static by.heretic.strength_exercise_api.util.Constants.SAVE;
 import static org.springframework.data.domain.Sort.Direction.DESC;
 
 @Controller
