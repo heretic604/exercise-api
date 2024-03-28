@@ -3,15 +3,12 @@
 <head>
     <title>Exercises</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
-    <link rel="stylesheet" type="text/css" href="/button.css">
-    <link rel="stylesheet" type="text/css" href="/container.css">
-    <link rel="stylesheet" type="text/css" href="/form.css">
-    <link rel="stylesheet" type="text/css" href="/header.css">
+    <link rel="stylesheet" type="text/css" href="/add-form.css">
     <link rel="stylesheet" type="text/css" href="/pagination.css">
     <link rel="stylesheet" type="text/css" href="/table.css">
 </head>
 <body>
-<h1 class="exercise-title">Exercise Management</h1>
+<h1>Exercise Management</h1>
 <div class="container">
     <div class="table-container">
         <table>
@@ -20,7 +17,7 @@
                 <th>Set Count</th>
                 <th>Repetition</th>
                 <th>Exercise Date</th>
-                <th>Actions</th>
+                <th>Delete</th>
             </tr>
             <tr th:if="${#lists.isEmpty(exercises)}">
                 <td colspan="5" class="empty-table">No completed exercises</td>
@@ -38,8 +35,7 @@
             </tr>
         </table>
     </div>
-    <div class="forms-container">
-        <div class="add-exercise-form">
+    <div class="add-form-container">
             <h3>ADD STRENGTH EXERCISE</h3>
             <form th:action="@{${saveExerciseUrl}}" method="post">
                 <div class="select-container">
@@ -66,8 +62,6 @@
                 </div>
                 <button class="save-button" type="submit">ADD STRENGTH EXERCISE</button>
             </form>
-        </div>
-        <div class="add-exercise-name-form">
             <h3>ADD EXERCISE NAME</h3>
             <form th:action="@{${saveExerciseNameUrl}}" method="post">
                 <div class="select-container">
@@ -77,7 +71,6 @@
                 <button class="save-button" type="submit">ADD EXERCISE NAME</button>
             </form>
         </div>
-    </div>
 </div>
 <div class="pagination-container">
     <a th:href="@{${baseUrl}}">First</a>

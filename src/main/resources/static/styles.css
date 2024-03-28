@@ -1,8 +1,45 @@
 body {
     background-color: #D0E1F9; /* Задает фоновый цвет для body */
-    font-family: Arial, sans-serif; /* Задает шрифт для текста в body */
+    font-family: Georgia, serif;
+    color: #1E1F26;
 }
 
 .error-p {
     margin-bottom: 20px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px; /* Устанавливает отступы внутри кнопки */
+    font-size: 16px; /* Задает размер шрифта для кнопки */
+    text-align: center; /* Выравнивает текст в кнопке по центру */
+    text-decoration: none; /* Удаляет подчеркивание ссылки в кнопке */
+    background-color: #283655; /* Задает фоновый цвет для */
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #4D648D;
+}
+
+.container {
+    display: flex; /* Устанавливает контейнер в режиме flexbox */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 95%;
+    margin-bottom: 5%;
+    font-size: 14px; /* Задает размер шрифта для выпадающего списка */
+    padding: 5px; /* Устанавливает отступ внутри элементов ввода */
+    border-radius: 4px; /* Задает скругленные углы для элементов ввода */
+    border: 1px solid #ccc; /* Задает границу для элементов ввода */
+}
+
+h1 {
+    text-align: center;
 }
