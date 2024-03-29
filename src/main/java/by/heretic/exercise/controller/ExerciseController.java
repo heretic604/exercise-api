@@ -53,7 +53,7 @@ public class ExerciseController {
         model.addAttribute("exercisesNames", exerciseNameService.getAll());
         model.addAttribute("currentPage", pageable.getPageNumber());
         model.addAttribute("totalPages", exercisePage.getTotalPages());
-        model.addAttribute("baseUrl", EXERCISES_BASE_URL);
+        model.addAttribute("exerciseBaseUrl", EXERCISES_BASE_URL);
         model.addAttribute("saveExerciseUrl", EXERCISES_BASE_URL + SAVE);
         model.addAttribute("deleteUrl", EXERCISES_BASE_URL + DELETE);
         model.addAttribute("saveExerciseNameUrl", EXERCISES_BASE_URL + NAME + SAVE);

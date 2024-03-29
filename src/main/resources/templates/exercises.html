@@ -6,10 +6,12 @@
     <link rel="stylesheet" type="text/css" href="/add-form.css">
     <link rel="stylesheet" type="text/css" href="/pagination.css">
     <link rel="stylesheet" type="text/css" href="/table.css">
+    <link rel="stylesheet" type="text/css" href="/navigation.css">
 </head>
 <body>
 <h1>Exercise Management</h1>
 <div class="container">
+    <div th:replace="navigation.html"></div>
     <div class="table-container">
         <table>
             <tr>
@@ -72,12 +74,6 @@
             </form>
         </div>
 </div>
-<div class="pagination-container">
-    <a th:href="@{${baseUrl}}">First</a>
-    <a th:href="@{${baseUrl}(page=${currentPage - 1})}" th:if="${currentPage > 0}">Previous</a>
-    <span th:text="${currentPage + 1}"></span> / <span th:text="${totalPages}"></span>
-    <a th:href="@{${baseUrl}(page=${currentPage + 1})}" th:if="${currentPage < totalPages - 1}">Next</a>
-    <a th:href="@{${baseUrl}(page=${totalPages} - 1)}">Last</a>
-</div>
+<div th:replace="pagination.html"></div>
 </body>
 </html>
