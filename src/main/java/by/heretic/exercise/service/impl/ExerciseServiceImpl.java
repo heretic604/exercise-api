@@ -7,7 +7,6 @@ import by.heretic.exercise.repository.ExerciseRepository;
 import by.heretic.exercise.service.ExerciseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +22,7 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     public Page<ExerciseDto> getAll(Pageable pageable) {
-        var list = exerciseRepository.findAll(pageable).stream()
-                .map(exerciseMapper::toStrengthExerciseDto)
-                .toList();
-
-        var total = exerciseRepository.count();
-        return new PageImpl<>(list, pageable, total);
+        return exerciseMapper.toDtoPage(exerciseRepository.findAll(pageable));
     }
 
     public void delete(Long id) {

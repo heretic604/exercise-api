@@ -1,13 +1,12 @@
 package by.heretic.exercise.controller;
 
-import by.heretic.exercise.api.ExerciseApi;
 import by.heretic.exercise.domain.dto.exercise.ExerciseCreateDto;
+import by.heretic.exercise.domain.dto.exercise.ExerciseDto;
 import by.heretic.exercise.domain.dto.exercise.name.ExerciseNameCreateDto;
-import by.heretic.exercise.domain.entity.Exercise;
-import by.heretic.exercise.service.impl.ExerciseNameServiceImpl;
-import by.heretic.exercise.service.impl.ExerciseServiceImpl;
+import by.heretic.exercise.service.ExerciseNameService;
+import by.heretic.exercise.service.ExerciseService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -20,55 +19,66 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import static by.heretic.exercise.util.Constants.DELETE;
-import static by.heretic.exercise.util.Constants.NAME;
+import static by.heretic.exercise.util.Constants.DELETE_EXERCISE_DESCRIPTION;
 import static by.heretic.exercise.util.Constants.EXERCISES_BASE_URL;
 import static by.heretic.exercise.util.Constants.EXERCISES_PATH;
+import static by.heretic.exercise.util.Constants.EXERCISE_API_DESCRIPTION;
+import static by.heretic.exercise.util.Constants.EXERCISE_API_NAME;
+import static by.heretic.exercise.util.Constants.GET_ALL_EXERCISES_DESCRIPTION;
+import static by.heretic.exercise.util.Constants.NAME;
 import static by.heretic.exercise.util.Constants.PAGE_SIZE;
 import static by.heretic.exercise.util.Constants.REDIRECT;
 import static by.heretic.exercise.util.Constants.SAVE;
+import static by.heretic.exercise.util.Constants.SAVE_EXERCISE_DESCRIPTION;
+import static by.heretic.exercise.util.Constants.SAVE_EXERCISE_NAME_DESCRIPTION;
 import static org.springframework.data.domain.Sort.Direction.DESC;
 
 @Controller
 @AllArgsConstructor
 @RequestMapping(EXERCISES_BASE_URL)
-public class ExerciseController implements ExerciseApi {
+@Tag(name = EXERCISE_API_NAME, description = EXERCISE_API_DESCRIPTION)
+public class ExerciseController {
 
-    private final ExerciseServiceImpl exerciseServiceImpl;
-    private final ExerciseNameServiceImpl exerciseNameServiceImpl;
+    private final ExerciseService exerciseService;
+    private final ExerciseNameService exerciseNameService;
 
     @GetMapping
+    @Operation(summary = GET_ALL_EXERCISES_DESCRIPTION)
     public String getAll(Model model,
-                         @PageableDefault(size = PAGE_SIZE, sort = Exercise.Fields.exerciseDate, direction = DESC)
+                         @PageableDefault(size = PAGE_SIZE, sort = ExerciseDto.Fields.exerciseDate, direction = DESC)
                          Pageable pageable) {
-        var strengthExercisePage = exerciseServiceImpl.getAll(pageable);
-        model.addAttribute("exercises", strengthExercisePage.getContent());
-        model.addAttribute("exercisesNames", exerciseNameServiceImpl.getAll());
+        var exercisePage = exerciseService.getAll(pageable);
+
+        model.addAttribute("exercises", exercisePage.getContent());
+        model.addAttribute("exercisesNames", exerciseNameService.getAll());
         model.addAttribute("currentPage", pageable.getPageNumber());
-        model.addAttribute("totalPages", strengthExercisePage.getTotalPages());
+        model.addAttribute("totalPages", exercisePage.getTotalPages());
         model.addAttribute("baseUrl", EXERCISES_BASE_URL);
         model.addAttribute("saveExerciseUrl", EXERCISES_BASE_URL + SAVE);
         model.addAttribute("deleteUrl", EXERCISES_BASE_URL + DELETE);
         model.addAttribute("saveExerciseNameUrl", EXERCISES_BASE_URL + NAME + SAVE);
+
         return EXERCISES_PATH;
     }
 
     @PostMapping(SAVE)
+    @Operation(summary = SAVE_EXERCISE_DESCRIPTION)
     public String saveExercise(@ModelAttribute ExerciseCreateDto createDto) {
-        exerciseServiceImpl.create(createDto);
+        exerciseService.create(createDto);
         return REDIRECT + EXERCISES_BASE_URL;
     }
 
     @PostMapping(NAME + SAVE)
+    @Operation(summary = SAVE_EXERCISE_NAME_DESCRIPTION)
     public String saveExerciseName(@ModelAttribute ExerciseNameCreateDto createDto) {
-        exerciseNameServiceImpl.create(createDto);
+        exerciseNameService.create(createDto);
         return REDIRECT + EXERCISES_BASE_URL;
     }
 
     @PostMapping(DELETE)
-    @Operation(summary = "Delete an exercise by ID")
-    @ApiResponse(responseCode = "204", description = "Exercise deleted")
+    @Operation(summary = DELETE_EXERCISE_DESCRIPTION)
     public String deleteExercise(@PathVariable("id") Long id) {
-        exerciseServiceImpl.delete(id);
+        exerciseService.delete(id);
         return REDIRECT + EXERCISES_BASE_URL;
     }
 
