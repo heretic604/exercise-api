@@ -1,13 +1,21 @@
 package by.heretic.strength_exercise_api.controller;
 
+import by.heretic.strength_exercise_api.api.ExerciseApi;
 import by.heretic.strength_exercise_api.domain.dto.exercise.ExerciseCreateDto;
 import by.heretic.strength_exercise_api.domain.dto.exercise.name.ExerciseNameCreateDto;
 import by.heretic.strength_exercise_api.domain.entity.Exercise;
-import by.heretic.strength_exercise_api.service.ExerciseNameService;
-import by.heretic.strength_exercise_api.service.ExerciseService;
+import by.heretic.strength_exercise_api.service.impl.ExerciseNameServiceImpl;
+import by.heretic.strength_exercise_api.service.impl.ExerciseServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,18 +36,18 @@ import static org.springframework.data.domain.Sort.Direction.DESC;
 @Controller
 @AllArgsConstructor
 @RequestMapping(EXERCISES_BASE_URL)
-public class ExerciseController {
+public class ExerciseController implements ExerciseApi {
 
-    private final ExerciseService exerciseService;
-    private final ExerciseNameService exerciseNameService;
+    private final ExerciseServiceImpl exerciseServiceImpl;
+    private final ExerciseNameServiceImpl exerciseNameServiceImpl;
 
     @GetMapping
     public String getAll(Model model,
                          @PageableDefault(size = PAGE_SIZE, sort = Exercise.Fields.exerciseDate, direction = DESC)
                          Pageable pageable) {
-        var strengthExercisePage = exerciseService.getAll(pageable);
+        var strengthExercisePage = exerciseServiceImpl.getAll(pageable);
         model.addAttribute("exercises", strengthExercisePage.getContent());
-        model.addAttribute("exercisesNames", exerciseNameService.getAll());
+        model.addAttribute("exercisesNames", exerciseNameServiceImpl.getAll());
         model.addAttribute("currentPage", pageable.getPageNumber());
         model.addAttribute("totalPages", strengthExercisePage.getTotalPages());
         model.addAttribute("baseUrl", EXERCISES_BASE_URL);
@@ -51,19 +59,21 @@ public class ExerciseController {
 
     @PostMapping(SAVE)
     public String saveExercise(@ModelAttribute ExerciseCreateDto createDto) {
-        exerciseService.create(createDto);
+        exerciseServiceImpl.create(createDto);
         return REDIRECT + EXERCISES_BASE_URL;
     }
 
     @PostMapping(NAME + SAVE)
     public String saveExerciseName(@ModelAttribute ExerciseNameCreateDto createDto) {
-        exerciseNameService.create(createDto);
+        exerciseNameServiceImpl.create(createDto);
         return REDIRECT + EXERCISES_BASE_URL;
     }
 
     @PostMapping(DELETE)
+    @Operation(summary = "Delete an exercise by ID")
+    @ApiResponse(responseCode = "204", description = "Exercise deleted")
     public String deleteExercise(@PathVariable("id") Long id) {
-        exerciseService.delete(id);
+        exerciseServiceImpl.delete(id);
         return REDIRECT + EXERCISES_BASE_URL;
     }
 

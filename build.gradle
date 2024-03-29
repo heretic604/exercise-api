@@ -35,6 +35,8 @@ dependencies {
     implementation 'org.liquibase:liquibase-core'
     implementation group: 'org.projectlombok', name: 'lombok-mapstruct-binding', version: '0.2.0'
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.4.0'
+    compileOnly group: 'com.google.guava', name: 'guava', version: '33.0.0-jre'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
