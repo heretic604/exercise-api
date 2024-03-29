@@ -36,12 +36,12 @@
         </table>
     </div>
     <div class="add-form-container">
-            <h3>ADD STRENGTH EXERCISE</h3>
+            <h3>ADD EXERCISE</h3>
             <form th:action="@{${saveExerciseUrl}}" method="post">
                 <div class="select-container">
-                    <label for="exerciseName">Strength Exercise Name:</label>
+                    <label for="exerciseName">Exercise Name:</label>
                     <select id="exerciseName" name="exerciseNameId" required>
-                        <option value="">Select Strength Exercise</option>
+                        <option value="">Select Exercise</option>
                         <option th:each="exercise : ${exercisesNames}"
                                 th:value="${exercise.exerciseNameId}"
                                 th:text="${exercise.exerciseName}"></option>
@@ -60,7 +60,7 @@
                     <input type="date" id="exerciseDate" name="exerciseDate"
                            th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" required>
                 </div>
-                <button class="save-button" type="submit">ADD STRENGTH EXERCISE</button>
+                <button class="save-button" type="submit">ADD EXERCISE</button>
             </form>
             <h3>ADD EXERCISE NAME</h3>
             <form th:action="@{${saveExerciseNameUrl}}" method="post">
