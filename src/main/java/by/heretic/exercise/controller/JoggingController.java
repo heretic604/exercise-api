@@ -2,6 +2,7 @@ package by.heretic.exercise.controller;
 
 import by.heretic.exercise.domain.dto.exercise.ExerciseDto;
 import by.heretic.exercise.domain.dto.jogging.JoggingCreateDto;
+import by.heretic.exercise.domain.dto.jogging.JoggingDto;
 import by.heretic.exercise.service.JoggingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,11 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import static by.heretic.exercise.util.Constants.DELETE;
 import static by.heretic.exercise.util.Constants.DELETE_JOGGING_DESCRIPTION;
+import static by.heretic.exercise.util.Constants.EXERCISES_BASE_URL;
 import static by.heretic.exercise.util.Constants.GET_ALL_JOGGING_DESCRIPTION;
 import static by.heretic.exercise.util.Constants.JOGGING_API_DESCRIPTION;
 import static by.heretic.exercise.util.Constants.JOGGING_API_NAME;
 import static by.heretic.exercise.util.Constants.JOGGING_BASE_URL;
-import static by.heretic.exercise.util.Constants.JOGGING_PATH;
+import static by.heretic.exercise.util.Constants.JOGGING_PAGE_PATH;
 import static by.heretic.exercise.util.Constants.PAGE_SIZE;
 import static by.heretic.exercise.util.Constants.REDIRECT;
 import static by.heretic.exercise.util.Constants.SAVE;
@@ -40,18 +42,19 @@ public class JoggingController {
     @GetMapping
     @Operation(summary = GET_ALL_JOGGING_DESCRIPTION)
     public String getAll(Model model,
-                         @PageableDefault(size = PAGE_SIZE, sort = ExerciseDto.Fields.exerciseDate, direction = DESC)
+                         @PageableDefault(size = PAGE_SIZE, sort = JoggingDto.Fields.joggingDate, direction = DESC)
                          Pageable pageable) {
         var joggingPage = joggingService.getAll(pageable);
 
-        model.addAttribute("jogging", joggingPage.getContent());
+        model.addAttribute("joggingList", joggingPage.getContent());
         model.addAttribute("currentPage", pageable.getPageNumber());
         model.addAttribute("totalPages", joggingPage.getTotalPages());
-        model.addAttribute("baseUrl", JOGGING_BASE_URL);
+        model.addAttribute("joggingBaseUrl", JOGGING_BASE_URL);
+        model.addAttribute("exerciseBaseUrl", EXERCISES_BASE_URL);
         model.addAttribute("saveJoggingUrl", JOGGING_BASE_URL + SAVE);
         model.addAttribute("deleteUrl", JOGGING_BASE_URL + DELETE);
 
-        return JOGGING_PATH;
+        return JOGGING_PAGE_PATH;
     }
 
     @PostMapping(SAVE)

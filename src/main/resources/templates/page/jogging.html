@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogging</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/add-form.css">
+    <link rel="stylesheet" type="text/css" href="/pagination.css">
+    <link rel="stylesheet" type="text/css" href="/table.css">
+    <link rel="stylesheet" type="text/css" href="/navigation.css">
+</head>
+<body>
+<h1>Jogging Management</h1>
+<div class="container">
+    <div th:replace="element/navigation.html"></div>
+    <div th:replace="element/jogging-table.html"></div>
+    <div th:replace="element/add-jogging.html"></div>
+</div>
+<div th:replace="element/pagination.html"></div>
+</body>
+</html>

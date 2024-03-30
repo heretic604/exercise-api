@@ -9,16 +9,16 @@ public final class Constants {
     public static final String SAVE = "/save";
     public static final String REDIRECT = "redirect:";
     public static final String DELETE = "/{id}/delete";
-    public static final String ERROR_PATH = "error";
+    public static final String ERROR_PAGE_PATH = "page/error";
 
     // Exercises
     public static final String EXERCISES_BASE_URL = "/v1/exercises";
-    public static final String EXERCISES_PATH = "exercises";
+    public static final String EXERCISE_PAGE_PATH = "page/exercises";
     public static final String NAME = "/name";
 
     // Jogging
     public static final String JOGGING_BASE_URL = "/v1/jogging";
-    public static final String JOGGING_PATH = "jogging";
+    public static final String JOGGING_PAGE_PATH = "page/jogging";
 
     // Pagination
     public static final int PAGE_SIZE = 12;

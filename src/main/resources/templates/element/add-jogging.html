@@ -1,0 +1,19 @@
+<div class="add-form-container">
+    <h3>NEW RUN</h3>
+    <form th:action="@{${saveJoggingUrl}}" method="post">
+        <div>
+            <label for="joggingDate">When?</label>
+            <input type="date" id="joggingDate" name="joggingDate"
+                   th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" required>
+        </div>
+        <div>
+            <label for="meters">How many meters?</label>
+            <input type="number" id="meters" name="meters" required>
+        </div>
+        <div>
+            <label for="minutes">How much time?</label>
+            <input type="number" id="minutes" name="minutes" required>
+        </div>
+        <button class="save-button" type="submit">ADD RUN</button>
+    </form>
+</div>

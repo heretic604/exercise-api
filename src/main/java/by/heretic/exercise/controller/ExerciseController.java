@@ -21,10 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static by.heretic.exercise.util.Constants.DELETE;
 import static by.heretic.exercise.util.Constants.DELETE_EXERCISE_DESCRIPTION;
 import static by.heretic.exercise.util.Constants.EXERCISES_BASE_URL;
-import static by.heretic.exercise.util.Constants.EXERCISES_PATH;
+import static by.heretic.exercise.util.Constants.EXERCISE_PAGE_PATH;
 import static by.heretic.exercise.util.Constants.EXERCISE_API_DESCRIPTION;
 import static by.heretic.exercise.util.Constants.EXERCISE_API_NAME;
 import static by.heretic.exercise.util.Constants.GET_ALL_EXERCISES_DESCRIPTION;
+import static by.heretic.exercise.util.Constants.JOGGING_BASE_URL;
 import static by.heretic.exercise.util.Constants.NAME;
 import static by.heretic.exercise.util.Constants.PAGE_SIZE;
 import static by.heretic.exercise.util.Constants.REDIRECT;
@@ -54,11 +55,12 @@ public class ExerciseController {
         model.addAttribute("currentPage", pageable.getPageNumber());
         model.addAttribute("totalPages", exercisePage.getTotalPages());
         model.addAttribute("exerciseBaseUrl", EXERCISES_BASE_URL);
+        model.addAttribute("joggingBaseUrl", JOGGING_BASE_URL);
         model.addAttribute("saveExerciseUrl", EXERCISES_BASE_URL + SAVE);
         model.addAttribute("deleteUrl", EXERCISES_BASE_URL + DELETE);
         model.addAttribute("saveExerciseNameUrl", EXERCISES_BASE_URL + NAME + SAVE);
 
-        return EXERCISES_PATH;
+        return EXERCISE_PAGE_PATH;
     }
 
     @PostMapping(SAVE)

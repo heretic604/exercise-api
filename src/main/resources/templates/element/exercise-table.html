@@ -1,0 +1,25 @@
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Exercise Name</th>
+            <th>Set Count</th>
+            <th>Repetition</th>
+            <th>Exercise Date</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:if="${#lists.isEmpty(exercises)}">
+            <td colspan="5" class="empty-table">No completed exercises</td>
+        </tr>
+        <tr th:each="exercise : ${exercises}">
+            <td th:text="${exercise.exerciseName}"></td>
+            <td th:text="${exercise.setCount}"></td>
+            <td th:text="${exercise.repetition}"></td>
+            <td th:text="${exercise.exerciseDate}"></td>
+            <td>
+                <form th:action="@{${deleteUrl}(id=${exercise.exerciseId})}" method="post">
+                    <button type="submit" class="delete-button">X</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>

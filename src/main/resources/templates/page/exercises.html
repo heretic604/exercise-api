@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Exercises</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/add-form.css">
+    <link rel="stylesheet" type="text/css" href="/pagination.css">
+    <link rel="stylesheet" type="text/css" href="/table.css">
+    <link rel="stylesheet" type="text/css" href="/navigation.css">
+</head>
+<body>
+<h1>Exercise Management</h1>
+<div class="container">
+    <div th:replace="element/navigation.html"></div>
+    <div th:replace="element/exercise-table.html"></div>
+    <div th:replace="element/add-exercise.html"></div>
+</div>
+<div th:replace="element/pagination.html"></div>
+</body>
+</html>
