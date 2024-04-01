@@ -5,8 +5,7 @@ plugins {
     id 'io.freefair.lombok' version '8.6'
 }
 
-group = 'by.heretic'
-version = '0.0.1-SNAPSHOT'
+group = 'by.coach'
 
 java {
     sourceCompatibility = '21'
@@ -60,3 +59,7 @@ dependencyManagement {
 //tasks.named('test') {
 //    useJUnitPlatform()
 //}
+
+jar {
+    enabled = false // disable plain file build
+}

@@ -7,7 +7,7 @@ import by.heretic.exercise.service.ExerciseNameService;
 import by.heretic.exercise.service.ExerciseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static by.heretic.exercise.util.Constants.DELETE;
 import static by.heretic.exercise.util.Constants.DELETE_EXERCISE_DESCRIPTION;
 import static by.heretic.exercise.util.Constants.EXERCISES_BASE_URL;
-import static by.heretic.exercise.util.Constants.EXERCISE_PAGE_PATH;
 import static by.heretic.exercise.util.Constants.EXERCISE_API_DESCRIPTION;
 import static by.heretic.exercise.util.Constants.EXERCISE_API_NAME;
+import static by.heretic.exercise.util.Constants.EXERCISE_PAGE_PATH;
 import static by.heretic.exercise.util.Constants.GET_ALL_EXERCISES_DESCRIPTION;
 import static by.heretic.exercise.util.Constants.JOGGING_BASE_URL;
 import static by.heretic.exercise.util.Constants.NAME;
@@ -35,7 +35,7 @@ import static by.heretic.exercise.util.Constants.SAVE_EXERCISE_NAME_DESCRIPTION;
 import static org.springframework.data.domain.Sort.Direction.DESC;
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping(EXERCISES_BASE_URL)
 @Tag(name = EXERCISE_API_NAME, description = EXERCISE_API_DESCRIPTION)
 public class ExerciseController {

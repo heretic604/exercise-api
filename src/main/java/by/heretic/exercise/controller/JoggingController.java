@@ -1,12 +1,11 @@
 package by.heretic.exercise.controller;
 
-import by.heretic.exercise.domain.dto.exercise.ExerciseDto;
 import by.heretic.exercise.domain.dto.jogging.JoggingCreateDto;
 import by.heretic.exercise.domain.dto.jogging.JoggingDto;
 import by.heretic.exercise.service.JoggingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -32,7 +31,7 @@ import static by.heretic.exercise.util.Constants.SAVE_JOGGING_DESCRIPTION;
 import static org.springframework.data.domain.Sort.Direction.DESC;
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping(JOGGING_BASE_URL)
 @Tag(name = JOGGING_API_NAME, description = JOGGING_API_DESCRIPTION)
 public class JoggingController {
