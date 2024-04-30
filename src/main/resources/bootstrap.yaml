@@ -6,4 +6,4 @@ spring:
       uri: http://localhost:8888
       enabled: true
   profiles:
-    active: dev
+    active: prod
