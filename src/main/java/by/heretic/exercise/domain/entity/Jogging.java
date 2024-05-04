@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.experimental.FieldNameConstants;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -21,8 +22,8 @@ public class Jogging {
 
     private LocalDate joggingDate;
     private Integer meters;
-    private Integer minutes;
-    private Integer metersPerMinute;
-    private Integer kilometersPerHour;
+    private LocalTime joggingTime;
+    private Double metersPerMinute;
+    private Double kilometersPerHour;
 
 }

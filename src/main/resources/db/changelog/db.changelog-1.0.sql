@@ -20,11 +20,11 @@ CREATE TABLE IF NOT EXISTS "public".exercise_name
 CREATE TABLE IF NOT EXISTS "public".jogging
 (
     jogging_id bigserial NOT NULL,
-    jogging_date        DATE    NOT NULL,
-    meters              INTEGER NOT NULL,
-    minutes             INTEGER NOT NULL,
-    meters_per_minute   INTEGER NOT NULL,
-    kilometers_per_hour INTEGER NOT NULL,
+    jogging_date        DATE          NOT NULL,
+    meters              INTEGER       NOT NULL,
+    jogging_time        TIME          NOT NULL,
+    meters_per_minute   DOUBLE precision NOT NULL,
+    kilometers_per_hour DOUBLE precision NOT NULL,
     CONSTRAINT pk_jogging PRIMARY KEY (jogging_id)
 );
 
