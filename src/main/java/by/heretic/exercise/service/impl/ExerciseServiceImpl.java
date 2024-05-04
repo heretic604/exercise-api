@@ -2,6 +2,7 @@ package by.heretic.exercise.service.impl;
 
 import by.heretic.exercise.domain.dto.exercise.ExerciseCreateDto;
 import by.heretic.exercise.domain.dto.exercise.ExerciseDto;
+import by.heretic.exercise.domain.entity.Exercise;
 import by.heretic.exercise.mapper.ExerciseMapper;
 import by.heretic.exercise.repository.ExerciseRepository;
 import by.heretic.exercise.service.ExerciseService;
@@ -18,7 +19,8 @@ public class ExerciseServiceImpl implements ExerciseService {
     private final ExerciseMapper exerciseMapper;
 
     public void create(ExerciseCreateDto exerciseCreateDto) {
-        exerciseRepository.save(exerciseMapper.toEntity(exerciseCreateDto));
+        Exercise exercise = exerciseMapper.toEntity(exerciseCreateDto);
+        exerciseRepository.save(exercise);
     }
 
     public Page<ExerciseDto> getAll(Pageable pageable) {

@@ -38,9 +38,9 @@ dependencies {
     implementation 'org.liquibase:liquibase-core'
     implementation group: 'org.projectlombok', name: 'lombok-mapstruct-binding', version: '0.2.0'
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.4.0'
-    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '4.1.1'
-    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap', version: '4.1.2'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config:4.1.1'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:4.1.2'
     compileOnly group: 'com.google.guava', name: 'guava', version: '33.0.0-jre'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'
@@ -48,13 +48,14 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.testcontainers:postgresql'
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
+//dependencyManagement {
+//    imports {
+//        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//    }
+//}
 
 tasks.named('test') {
     useJUnitPlatform()
