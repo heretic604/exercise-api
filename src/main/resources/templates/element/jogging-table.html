@@ -3,7 +3,7 @@
         <tr>
             <th>Date</th>
             <th>Distance, m</th>
-            <th>Duration, min</th>
+            <th>Duration</th>
             <th>Speed, m/m</th>
             <th>Speed, km/h</th>
             <th>Delete</th>
@@ -14,7 +14,7 @@
         <tr th:each="jogging : ${joggingList}">
             <td th:text="${jogging.joggingDate}"></td>
             <td th:text="${jogging.meters}"></td>
-            <td th:text="${jogging.minutes}"></td>
+            <td th:text="${jogging.joggingTime}"></td>
             <td th:text="${jogging.metersPerMinute}"></td>
             <td th:text="${jogging.kilometersPerHour}"></td>
             <td>

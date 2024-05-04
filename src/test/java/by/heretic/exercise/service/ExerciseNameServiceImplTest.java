@@ -1,4 +1,4 @@
-package by.heretic.exercise.service.impl;
+package by.heretic.exercise.service;
 
 import by.heretic.exercise.domain.dto.exercise.name.ExerciseNameCreateDto;
 import by.heretic.exercise.domain.dto.exercise.name.ExerciseNameDto;
@@ -6,6 +6,7 @@ import by.heretic.exercise.domain.entity.ExerciseName;
 import by.heretic.exercise.exeption.DuplicateExerciseNameException;
 import by.heretic.exercise.mapper.ExerciseNameMapper;
 import by.heretic.exercise.repository.ExerciseNameRepository;
+import by.heretic.exercise.service.impl.ExerciseNameServiceImpl;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

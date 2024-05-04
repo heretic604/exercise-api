@@ -7,6 +7,8 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.time.LocalTime;
+
 import static by.heretic.exercise.util.Constants.DELETE;
 import static by.heretic.exercise.util.Constants.JOGGING_BASE_URL;
 import static by.heretic.exercise.util.Constants.SAVE;
@@ -50,10 +52,12 @@ class JoggingControllerTest extends AbstractContainer {
     @Test
     @SneakyThrows
     void saveTest() {
+        var timeString = LocalTime.of(0, 40).toString();
+
         mockMvc.perform(MockMvcRequestBuilders.post(JOGGING_BASE_URL + SAVE)
                         .param("joggingDate", "2000-01-04")
                         .param("meters", "400")
-                        .param("minutes", "40"))
+                        .param("joggingTime", timeString))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl(JOGGING_BASE_URL));
 
